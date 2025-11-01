@@ -8,7 +8,7 @@ def video():
     user_input = request.form[("video_text")]
     operation = client.models.generate_videos(
         model="veo-3.1-generate-preview",
-        prompt=prompt,
+        prompt=user_input,
     )
     generated_video = operation.response.generated_videos[0]
     client.files.download(file=generated_video.video)
