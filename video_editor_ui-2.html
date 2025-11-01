@@ -514,15 +514,22 @@
             </div>
         </div>
         <div class="center-panel">
-            <div class="preview-area">
-                <div class="preview-placeholder">Your Creative Canvas Awaits!</div>
+  <div class="preview-area">
+    {% if video_url %}
+      <video controls autoplay loop>
+        <source src="{{ video_url }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    {% else %}
+      <div class="preview-placeholder">Your Creative Canvas Awaits!</div>
+    {% endif %}
 
-                <form method="POST" action="/video">
-                 <input type="text" class="ai-input" id="video_text" placeholder="Idea & press Enter…">
-                    <button type="submit" class="object-item">Start making videos</button></form>
-
-            </div>
-            </div>
+    <form method="POST" action="/video">
+      <input type="text" class="ai-input" name="video_text" placeholder="Idea & press Enter…" required>
+      <button type="submit" class="object-item">Start making videos</button>
+    </form>
+  </div>
+</div>
         <div class="right-panel">
             <div class="properties-section">
                 <div class="prop-group">
