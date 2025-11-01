@@ -13,4 +13,4 @@ def video():
     generated_video = operation.response.generated_videos[0]
     client.files.download(file=generated_video.video)
     generated_video.video.save(f"{user_input}.mp4")
-return render_template("the_html_file_name.html", video_url=video_url)
+return render_template("the_html_file_name.html", video_url=f"{user_input}.mp4")
